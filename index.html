@@ -4,21 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing Calculation Tool</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container my-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Lorem ipsum dolor sit amet consectetur </h1>
+            <p class="lead">adipisicing elit. Velit inventore omnis enim facere voluptas alias quisquam!</p>
+            <hr class="my-4">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. .</p>
+        </div>
+
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-5 offset-md-3">
                     <div class="content">
                         <h2>Løn</h2>
                         <p class="text-muted">Indtast den løn vikaren få for en normaltime</p>
                         <div class="form-group row ">
                             <label for="salary" class="col-md-6 col-form-label">Vikarens timeløn:</label>
-                            <div class="col-md-6">
-                                <input type="number" min="0" name="salary" id="salary" class="form-control" value="0" onchange="calculateCost()" onkeyup="calculateCost()">
+                            <div class="col-md-5 input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="input-group-minus">-</span>
+                              </div>
+                              <input type="number" min="0" name="salary" id="salary" class="form-control" value="0" onchange="calculateCost()" onkeyup="calculateCost()">
+                              <div class="input-group-append">
+                                <span class="input-group-text" id="input-group-plus">+</span>
+                              </div>
                             </div>
+                            <div class="col-md-1 mt-1 px-0"><b>kr./time</b></div>
                         </div>
                     </div>
                     <div class="content">
@@ -26,9 +41,70 @@
                         <p class="text-muted">Feriepengefaktor ligger fast på 12.5%</p>
                         <div class="form-group row ">
                             <label for="feriepenge" class="col-md-6 col-form-label">Feriepengesats:</label>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <input type="number" class="form-control" value="12.5" disabled>
                             </div>
+                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>SH og Fritvalgskonto</h2>
+                        <p class="text-muted">Satserne I bidrager med til Søgnehelligdage og Fritvalgskonto</p>
+                        <div class="form-group row ">
+                            <label for="sh" class="col-md-6 col-form-label">SH:</label>
+                            <div class="col-md-5 input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="input-group-minus">-</span>
+                              </div>
+                              <input type="number" min="0" name="sh" id="sh" class="form-control" value="0" onchange="calculateCost()" onkeyup="calculateCost()">
+                              <div class="input-group-append">
+                                <span class="input-group-text" id="input-group-plus">+</span>
+                              </div>
+                            </div>
+                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                        </div>
+                        <div class="form-group row ">
+                            <label for="fritvalg" class="col-md-6 col-form-label">FV:</label>
+                            <div class="col-md-5 input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="input-group-minus">-</span>
+                                </div>
+                                <input type="number" min="0" name="fritvalg" id="fritvalg" class="form-control" value="0" onchange="calculateCost()" onkeyup="calculateCost()">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" id="input-group-plus">+</span>
+                                </div>
+                            </div>
+                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>Pension</h2>
+                        <p class="text-muted">Har jeres virksomhed en pensionsaftale?</p>
+                        <div class="form-group row ">
+                            <label for="arbejdsgiverbidrag" class="col-md-6 col-form-label">Arbejdsgiverbidrag:</label>
+                            <div class="col-md-5 input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="input-group-minus">-</span>
+                              </div>
+                              <input type="number" min="0" name="arbejdsgiverbidrag" id="arbejdsgiverbidrag" class="form-control" value="0" onchange="calculateCost()" onkeyup="calculateCost()">
+                              <div class="input-group-append">
+                                <span class="input-group-text" id="input-group-plus">+</span>
+                              </div>
+                            </div>
+                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                        </div>
+                        <div class="form-group row ">
+                            <label for="medarbejderbidrag" class="col-md-6 col-form-label">Medarbejderbidrag:</label>
+                            <div class="col-md-5 input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="input-group-minus">-</span>
+                                </div>
+                                <input type="number" min="0" name="medarbejderbidrag" id="medarbejderbidrag" class="form-control" value="0" onchange="calculateCost()" onkeyup="calculateCost()">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" id="input-group-plus">+</span>
+                                </div>
+                            </div>
+                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                     </div>
                     <div class="content">
@@ -36,9 +112,10 @@
                         <p class="text-muted">Som udgangspunkt ligger lønfaktoren på 1.4%</p>
                         <div class="form-group row ">
                             <label for="lønfaktor" class="col-md-6 col-form-label">Lønfaktorsats:</label>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <input type="number" class="form-control" value="1.4" disabled>
                             </div>
+                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                     </div>
                     <hr>
@@ -55,12 +132,32 @@
     <script>    
         function calculateCost(){
             let inputSalary = document.querySelector('#salary').value;
-            console.log(inputSalary);
             let calculatedSalary = parseFloat(inputSalary * 1.4);
             let calculatedFeriepenge = parseFloat(inputSalary * 0.125);
             let displayResult =calculatedSalary + calculatedFeriepenge;
             document.querySelector('#result').textContent = displayResult.toFixed(2);
         }
+        /**
+        * All input spans are selected.
+        * Event listener then decides whether input value should increase or decrease
+        * based on the span id.
+        * @param {item} arg Will be the targeted +/- span
+        */
+        document.querySelectorAll('.input-group-text').forEach(item => {
+            item.addEventListener('click', event => {
+                if (item.id ==="input-group-minus") {
+                    let inputNumber = item.parentNode.nextSibling.nextSibling;
+                    let initialNumber = inputNumber.value;
+                    inputNumber.value = initialNumber - 1;
+                    calculateCost();
+                } else if (item.id ==="input-group-plus") {
+                    let inputNumber = item.parentNode.previousSibling.previousSibling;
+                    let initialNumber = inputNumber.value;
+                    inputNumber.value = +initialNumber + 1;
+                    calculateCost();
+                }
+            })
+            })
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
