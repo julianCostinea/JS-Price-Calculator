@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing Calculation Tool</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
@@ -33,7 +34,7 @@
                                 <span class="input-group-text" id="input-group-plus">+</span>
                               </div>
                             </div>
-                            <div class="col-md-1 mt-1 px-0"><b>kr./time</b></div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0">&nbsp;<b>kr./time</b></div>
                         </div>
                     </div>
                     <div class="content">
@@ -41,10 +42,10 @@
                         <p class="text-muted">Feriepengefaktor ligger fast på 12.5%</p>
                         <div class="form-group row ">
                             <label for="feriepenge" class="col-md-6 col-form-label">Feriepengesats:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-5 input-group">
                                 <input type="number" class="form-control" value="12.5" disabled>
                             </div>
-                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                     </div>
                     <div class="content">
@@ -61,7 +62,7 @@
                                 <span class="input-group-text" id="input-group-plus">+</span>
                               </div>
                             </div>
-                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                         <div class="form-group row ">
                             <label for="fritvalg" class="col-md-6 col-form-label">FV:</label>
@@ -74,7 +75,7 @@
                                   <span class="input-group-text" id="input-group-plus">+</span>
                                 </div>
                             </div>
-                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                     </div>
                     <div class="content">
@@ -91,7 +92,7 @@
                                 <span class="input-group-text" id="input-group-plus">+</span>
                               </div>
                             </div>
-                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                         <div class="form-group row ">
                             <label for="medarbejderbidrag" class="col-md-6 col-form-label">Medarbejderbidrag:</label>
@@ -104,7 +105,24 @@
                                   <span class="input-group-text" id="input-group-plus">+</span>
                                 </div>
                             </div>
-                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0"><b>%</b></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>Øvrige/Lokale aftaler:</h2>
+                        <p class="text-muted">Indtast eventuelle tillæg (f. eks. aften eller kørselstillæg)</p>
+                        <div class="form-group row ">
+                            <label for="tillæg" class="col-md-6 col-form-label">Tillæg:</label>
+                            <div class="col-md-5 input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="input-group-minus">-</span>
+                                </div>
+                                <input type="number" min="0" name="tillæg" id="tillæg" class="form-control" value="0" onchange="calculateCost()" onkeyup="calculateCost()">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" id="input-group-plus">+</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                     </div>
                     <div class="content">
@@ -112,30 +130,33 @@
                         <p class="text-muted">Som udgangspunkt ligger lønfaktoren på 1.4%</p>
                         <div class="form-group row ">
                             <label for="lønfaktor" class="col-md-6 col-form-label">Lønfaktorsats:</label>
-                            <div class="col-md-5">
+                            <div class="col-md-5 input-group">
                                 <input type="number" class="form-control" value="1.4" disabled>
                             </div>
-                            <div class="col-md-1 mt-1 px-0"><b>%</b></div>
+                            <div class="col-sm-12 col-md-1 mt-1 px-0"><b>%</b></div>
                         </div>
                     </div>
                     <hr>
-                    <div>Samlede lønomkostninger:
-                        <span id="result" class="font-weight-bold" style="font-size: large; color: crimson;">0.00</span>
-                        <span> kr./time</span>
+                    <div style="font-size: 2rem;">Samlede lønomkostninger:
+                        <p class="text-center">
+                            <span id="result" class="font-weight-bold" style="color:crimson;">0.00</span>
+                            <span> kr./time</span>
+                        </p>
                     </div>
+                    <hr>
                     <div class="text-center mt-2">
                         <button type="button" class="btn btn-lg btn-success text-center">Striv til os og få et godt tilbud!</button>
                     </div>
                 </div>
             </div>
     </div>
-    <script>    
-        function calculateCost(){
-            let inputSalary = document.querySelector('#salary').value;
-            let calculatedSalary = parseFloat(inputSalary * 1.4);
-            let calculatedFeriepenge = parseFloat(inputSalary * 0.125);
-            let displayResult =calculatedSalary + calculatedFeriepenge;
-            document.querySelector('#result').textContent = displayResult.toFixed(2);
+    <script>
+        function calculateCost() {
+          const inputSalary = document.querySelector('#salary').value;
+          const calculatedSalary = parseFloat(inputSalary * 1.4);
+          const calculatedFeriepenge = parseFloat(inputSalary * 0.125);
+          const displayResult = calculatedSalary + calculatedFeriepenge;
+          document.querySelector('#result').textContent = displayResult.toFixed(2);
         }
         /**
         * All input spans are selected.
@@ -143,21 +164,21 @@
         * based on the span id.
         * @param {item} arg Will be the targeted +/- span
         */
-        document.querySelectorAll('.input-group-text').forEach(item => {
-            item.addEventListener('click', event => {
-                if (item.id ==="input-group-minus") {
-                    let inputNumber = item.parentNode.nextSibling.nextSibling;
-                    let initialNumber = inputNumber.value;
-                    inputNumber.value = initialNumber - 1;
-                    calculateCost();
-                } else if (item.id ==="input-group-plus") {
-                    let inputNumber = item.parentNode.previousSibling.previousSibling;
-                    let initialNumber = inputNumber.value;
-                    inputNumber.value = +initialNumber + 1;
-                    calculateCost();
-                }
-            })
-            })
+        document.querySelectorAll('.input-group-text').forEach((item) => {
+          item.addEventListener('click', (event) => {
+            if (item.id === 'input-group-minus') {
+              const inputNumber = item.parentNode.nextSibling.nextSibling;
+              const initialNumber = inputNumber.value;
+              inputNumber.value = initialNumber - 1;
+              calculateCost();
+            } else if (item.id === 'input-group-plus') {
+              const inputNumber = item.parentNode.previousSibling.previousSibling;
+              const initialNumber = inputNumber.value;
+              inputNumber.value = +initialNumber + 1;
+              calculateCost();
+            }
+          });
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

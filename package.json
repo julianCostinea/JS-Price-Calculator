@@ -1,0 +1,22 @@
+{
+  "name": "gw_project",
+  "version": "1.0.0",
+  "description": "Simple price calculator in ES6",
+  "main": "bad-code.js",
+  "dependencies": {
+    "eslint-plugin-html": "^6.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

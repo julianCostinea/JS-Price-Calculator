@@ -1,3 +1,6 @@
+body{
+  font-family: 'Open Sans', sans-serif!important;
+}
 div.input-group div span {
     cursor: pointer;
     -webkit-user-select: none; /* Safari */        
@@ -8,3 +11,11 @@ div.input-group div span {
 div.input-group input{
   text-align: center;
 }
+div.row div.input-group{
+  padding-right: 0;
+}
+div.row div.col-sm-12{
+  text-align:center;
+}
+input:disabled {
+  cursor: not-allowed;}
